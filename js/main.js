@@ -1,9 +1,10 @@
 var palavras = [];
 var palavra = "";
 var palavraTemp ="";
+var letrasCorretas = [];
+var letrasIncorretas = [];
 
-const letrasCorretas = [];
-const letrasIncorretas = [];
+var estadoGame = 'null';
 
 function lerPalavras() {
     var xhr = new XMLHttpRequest();
@@ -46,22 +47,26 @@ function exibirPalavra() {
 }
 
 function processarEntrada(letra) {
-    if (palavra.includes(letra)) {
-        if (!letrasCorretas.includes(letra)) {
-            letrasCorretas.push(letra);
-            exibirPalavra();
-            if (palavraCompleta()) {
-                renderVitoria();
-                console.log("Parabéns, você ganhou!");
+    if(estadoGame === 'null'){
+        if (palavra.includes(letra)) {
+            if (!letrasCorretas.includes(letra)) {
+                letrasCorretas.push(letra);
+                exibirPalavra();
+                if (palavraCompleta()) {
+                    estadoGame = 'vitoria';
+                    renderVitoria();
+                    console.log("Parabéns, você ganhou!");
+                }
             }
-        }
-    } else {
-        if (!letrasIncorretas.includes(letra)) {
-            letrasIncorretas.push(letra);
-            console.log("Letra incorreta!");
-            if (letrasIncorretas.length === 6) {
-                renderDerrota();
-                console.log("Você perdeu!");
+        } else {
+            if (!letrasIncorretas.includes(letra)) {
+                letrasIncorretas.push(letra);
+                console.log("Letra incorreta!");
+                if (letrasIncorretas.length === 6) {
+                    estadoGame = 'derrota';
+                    renderDerrota();
+                    console.log("Você perdeu!");
+                }
             }
         }
     }
@@ -99,7 +104,24 @@ function renderDerrota(){
     document.getElementById('resultado').innerHTML = 'A palavra era: ' + palavra;
 }
 
+function reset(){
+    palavras = [];
+    palavra = "";
+    palavraTemp ="";
+    letrasCorretas = [];
+    letrasIncorretas = [];
+    estadoGame = 'null';
+    lerPalavras();
+    exibirPalavra();
+    renderErros();
+    renderImagemForca();
+
+    document.getElementById('mensagem').innerHTML = '';
+    document.getElementById('resultado').innerHTML = '';
+
+}
+
 document.addEventListener("keypress", function(event) {
     const letra = event.key;
-    processarEntrada(letra);
+    processarEntrada(letra.toLowerCase());
 });
