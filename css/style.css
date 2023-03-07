@@ -57,3 +57,7 @@
 .btn:hover {
     background-color: #3e518e;
 }
+
+.menu{
+    min-width: 250px;
+}
