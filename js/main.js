@@ -22,6 +22,7 @@ function escolherPalavra() {
 
 window.onload = function() {
     lerPalavras();
+    exibirPalavra();
 };
 
 function exibirPalavra() {
@@ -33,6 +34,7 @@ function exibirPalavra() {
             palavraExibida += " _ ";
         }
     }
+    document.getElementById('palavraSecreta').innerHTML = palavraExibida;
     console.log(palavraExibida);
 }
 
@@ -54,6 +56,7 @@ function processarEntrada(letra) {
             }
         }
     }
+    imagemForca();
 }
 
 function palavraCompleta() {
@@ -63,6 +66,10 @@ function palavraCompleta() {
         }
     }
     return true;
+}
+
+function imagemForca() {
+    document.getElementById('imagem').src = './img/' + letrasIncorretas.length + '.png';
 }
 
 document.addEventListener("keypress", function(event) {
