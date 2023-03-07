@@ -1,0 +1,30 @@
+.container{
+    display: block;
+    text-align: center;
+}
+
+.titulo{
+    padding-bottom: 10rem;
+    padding-top: 1rem;
+}
+
+.texto{
+    font-size: 25px;
+}
+
+.texto-palavra{
+    font-size: 50px;
+}
+
+.container-jogo{
+    display: inline-block;
+
+}
+
+.palavra{
+    float: right;
+}
+
+.erros{
+    padding-top: 50px;
+}
