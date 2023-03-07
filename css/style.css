@@ -28,3 +28,7 @@
 .erros{
     padding-top: 50px;
 }
+
+#mensagem, #resultado{
+    font-size: 25px;
+}
