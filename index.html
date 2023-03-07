@@ -5,11 +5,35 @@
   <meta charset="utf-8">
   <title>FORCA</title>
 
+  <link rel="stylesheet" href="./css/style.css" />
   <script src="js/main.js"></script>
 </head>
 
 <body>
-<div><p><b>POR ENQUANTO O JOGO EXISTE APENAS PELO CONSOLE DO NAVEGADOR (N&Atilde;O FOI CRIADA UMA INTERFACE)</b></p></div>
+
+  <div class="container">
+    <h1 class="titulo">Hangman</h1>
+
+    <div class="container-jogo">
+      <img id='imagem' src="./img/0.png" alt="">
+      <div class="palavra">
+        <p class="texto">Adivinhe a palavra:</p>
+        <p class="texto texto-palavra" id="palavraSecreta">palavra aparecer&aacute; aqui</p>
+      </div>
+
+      <div class="erros">Erros:
+        <span id='errosQnt'>0</span> de 6
+      </div>
+
+      <div id="keyboard"></div>
+      <button class="btn btn-info" onClick="reset()">Reset</button>
+    </div>
+
+  </div>
+
 </body>
 
 </html>
+
+
+
