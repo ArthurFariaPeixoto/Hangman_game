@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Hangman</title>
+
+  <link rel="icon" href="../favicon.ico">
+  <link rel="shortcut icon" href="../favicon.ico" >
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="../js/main.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+  <h1 class="titulo">Hangman</h1>
+
+  <div class="container-jogo">
+    <img id='imagem' src="../img/0.png" alt="">
+    <div class="palavra">
+      <p class="texto">Adivinhe a palavra:</p>
+      <p class="texto texto-palavra" id="palavraSecreta">palavra aparecer&aacute; aqui</p>
+    </div>
+
+    <div class="erros">Erros:
+      <span id='errosQnt'>0</span> de 6
+    </div>
+
+    <p id="mensagem"></p>
+    <p id="resultado"></p>
+    <button class="btn" onClick="reset()">Reiniciar</button>
+  </div>
+
+</div>
+
+</body>
+
+</html>
+
+
+
