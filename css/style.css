@@ -1,11 +1,16 @@
+:root{
+    font-family: Courier New, monospace;
+}
+
+
 .container{
     display: block;
     text-align: center;
 }
 
 .titulo{
-    padding-bottom: 10rem;
-    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-top: 10rem;
 }
 
 .texto{
@@ -26,9 +31,29 @@
 }
 
 .erros{
+    font-size: 25px;
     padding-top: 50px;
 }
 
 #mensagem, #resultado{
     font-size: 25px;
+}
+
+.btn {
+    background-color: #262626;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.btn:hover {
+    background-color: #3e518e;
 }
