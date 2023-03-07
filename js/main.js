@@ -19,7 +19,7 @@ function lerPalavras() {
 
         }
     };
-    xhr.open('GET', 'palavras.txt', true);
+    xhr.open('GET', '../palavras.txt', true);
     xhr.send();
 
 }
@@ -84,7 +84,7 @@ function palavraCompleta() {
 }
 
 function renderImagemForca() {
-    document.getElementById('imagem').src = './img/' + letrasIncorretas.length + '.png';
+    document.getElementById('imagem').src = '../img/' + letrasIncorretas.length + '.png';
 }
 
 function renderPalavraSecreta(palavra){
