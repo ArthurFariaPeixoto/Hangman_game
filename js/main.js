@@ -1,5 +1,6 @@
 var palavras = [];
 var palavra = "";
+var palavraTemp ="";
 
 const letrasCorretas = [];
 const letrasIncorretas = [];
@@ -10,10 +11,16 @@ function lerPalavras() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             palavras = xhr.responseText.split(',');
             palavra = escolherPalavra();
+            palavra.split('').forEach(function(){
+                palavraTemp+= " _ ";
+            });
+            renderPalavraSecreta(palavraTemp);
+
         }
     };
     xhr.open('GET', 'palavras.txt', true);
     xhr.send();
+
 }
 
 function escolherPalavra() {
@@ -34,7 +41,7 @@ function exibirPalavra() {
             palavraExibida += " _ ";
         }
     }
-    document.getElementById('palavraSecreta').innerHTML = palavraExibida;
+    renderPalavraSecreta(palavraExibida);
     console.log(palavraExibida);
 }
 
@@ -44,6 +51,7 @@ function processarEntrada(letra) {
             letrasCorretas.push(letra);
             exibirPalavra();
             if (palavraCompleta()) {
+                renderVitoria();
                 console.log("Parabéns, você ganhou!");
             }
         }
@@ -52,11 +60,13 @@ function processarEntrada(letra) {
             letrasIncorretas.push(letra);
             console.log("Letra incorreta!");
             if (letrasIncorretas.length === 6) {
+                renderDerrota();
                 console.log("Você perdeu!");
             }
         }
     }
-    imagemForca();
+    renderErros();
+    renderImagemForca();
 }
 
 function palavraCompleta() {
@@ -68,8 +78,25 @@ function palavraCompleta() {
     return true;
 }
 
-function imagemForca() {
+function renderImagemForca() {
     document.getElementById('imagem').src = './img/' + letrasIncorretas.length + '.png';
+}
+
+function renderPalavraSecreta(palavra){
+    document.getElementById('palavraSecreta').innerHTML = palavra;
+}
+
+function renderErros(){
+    document.getElementById('errosQnt').innerHTML = letrasIncorretas.length;
+}
+
+function renderVitoria(){
+    document.getElementById('mensagem').innerHTML = 'Voc&ecirc ganhou!!!';
+}
+
+function renderDerrota(){
+    document.getElementById('mensagem').innerHTML = 'Voc&ecirc perdeu!!!';
+    document.getElementById('resultado').innerHTML = 'A palavra era: ' + palavra;
 }
 
 document.addEventListener("keypress", function(event) {
