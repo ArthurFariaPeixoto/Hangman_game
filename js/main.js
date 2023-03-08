@@ -43,7 +43,6 @@ function exibirPalavra() {
         }
     }
     renderPalavraSecreta(palavraExibida);
-    console.log(palavraExibida);
 }
 
 function processarEntrada(letra) {
@@ -55,7 +54,6 @@ function processarEntrada(letra) {
                 if (palavraCompleta()) {
                     estadoGame = 'vitoria';
                     renderVitoria();
-                    console.log("Parabéns, você ganhou!");
                 }
             }
         } else {
@@ -65,7 +63,6 @@ function processarEntrada(letra) {
                 if (letrasIncorretas.length === 6) {
                     estadoGame = 'derrota';
                     renderDerrota();
-                    console.log("Você perdeu!");
                 }
             }
         }
@@ -93,7 +90,7 @@ function renderPalavraSecreta(palavra){
 }
 
 function renderErros(){
-    document.getElementById('errosQnt').innerHTML = letrasIncorretas.length;
+    document.getElementById('errosQnt').innerHTML = ''+letrasIncorretas.length;
 }
 
 function renderVitoria(){
@@ -124,7 +121,7 @@ function reset(){
 
     document.getElementById('mensagem').innerHTML = '';
     document.getElementById('resultado').innerHTML = '';
-    document.getElementById('letrasErradas').innerHTML ='Tentativas: ';
+    document.getElementById('letrasErradas').innerHTML = 'Tentativas: ';
 
 }
 
