@@ -6,7 +6,7 @@ O famoso jogo da forca feito em javascript.
 Para joga-lo clique <a href="https://arthurfariapeixoto.github.io/Hangman_game/">aqui</a>.
 
 
-
+------
 ### Features próximas
 
 - Seleção de dificuldade: "easy" ou "hard" (muda a lista de palavras que será escolhida).
