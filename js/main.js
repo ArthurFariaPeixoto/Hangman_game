@@ -71,6 +71,7 @@ function processarEntrada(letra) {
         }
     }
     renderErros();
+    renderLetrasErradas();
     renderImagemForca();
 }
 
@@ -104,6 +105,10 @@ function renderDerrota(){
     document.getElementById('resultado').innerHTML = 'A palavra era: ' + palavra;
 }
 
+function renderLetrasErradas(){
+    document.getElementById('letrasErradas').innerHTML ='Tentativas: ' + letrasIncorretas.sort();
+}
+
 function reset(){
     palavras = [];
     palavra = "";
@@ -111,6 +116,7 @@ function reset(){
     letrasCorretas = [];
     letrasIncorretas = [];
     estadoGame = 'null';
+
     lerPalavras();
     exibirPalavra();
     renderErros();
@@ -118,6 +124,7 @@ function reset(){
 
     document.getElementById('mensagem').innerHTML = '';
     document.getElementById('resultado').innerHTML = '';
+    document.getElementById('letrasErradas').innerHTML ='Tentativas: ';
 
 }
 
